@@ -52,10 +52,9 @@ button:focus-visible,a:focus-visible { outline: 1px solid var(--primary); outlin
 .studio { overflow: clip; }
 .container { width: min(1280px, calc(100% - 112px)); margin-inline: auto; }
 .site-header { height: 94px; display: flex; align-items: center; justify-content: space-between; position: absolute; z-index: 20; left: 56px; right: 56px; border-bottom: 1px solid color-mix(in oklab, var(--border) 50%, transparent); }
-.brand { display: flex; align-items: center; gap: 12px; }
-.brand img { width: 64px; height: 38px; object-fit: contain; }
-.brand-text { font-size: 10px; font-weight: 700; line-height: 1.6; }
-.brand-text span { display: block; font-size: 8px; color: var(--muted-foreground); font-weight: 400; }
+.brand { display: flex; align-items: center; }
+.brand-official-logo { height: 48px; width: auto; max-width: 180px; object-fit: contain; filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4)); }
+.footer-official-logo { height: 44px; width: auto; max-width: 170px; object-fit: contain; filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4)); }
 .navigation { display: flex; gap: 36px; font-size: 11px; }
 .navigation a { transition: color .2s; }
 .navigation a:hover { color: var(--primary); }

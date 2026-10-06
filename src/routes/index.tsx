@@ -71,7 +71,9 @@ function Index() {
     <div className={`studio ${paused ? "paused" : ""}`}>
       <CinematicIntro />
       <header className="site-header">
-        <a href="#top" className="brand" aria-label="DW Production Media home"><img src={logo.url} alt="DW" /><div className="brand-text">PRODUCTION MEDIA<span>CREATE · CAPTURE · CONNECT</span></div></a>
+        <a href="#top" className="brand" aria-label="DW Production Media home">
+          <img src={logo.url} alt="DW Production Media" className="brand-official-logo" />
+        </a>
         <nav aria-label="Main navigation" className={`navigation ${menuOpen ? "is-open" : ""}`}>
           {[['Work', '#work'], ['Services', '#services'], ['The Studio', '#studio'], ['Contact', '#contact']].map(([name, href]) => <a key={name} href={href} onClick={() => setMenuOpen(false)}>{name}</a>)}
         </nav>
@@ -245,11 +247,7 @@ function Index() {
           {/* Column 1: Brand & Facebook QR */}
           <div className="footer-col footer-brand-col">
             <div className="footer-brand">
-              <img src={logo.url} alt="DW Production Media" />
-              <div className="brand-text">
-                PRODUCTION MEDIA
-                <span>CREATE · CAPTURE · CONNECT</span>
-              </div>
+              <img src={logo.url} alt="DW Production Media" className="footer-official-logo" />
             </div>
             <p className="footer-tagline">
               Innovate. Create. Elevate.<br />
