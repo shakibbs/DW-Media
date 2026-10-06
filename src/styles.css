@@ -1121,20 +1121,45 @@ html.intro-active {
     bottom: auto;
     height: 220px;
   }
+  /* Hide floating navigation arrow buttons on mobile */
   .workbook-nav {
-    width: 38px;
-    height: 38px;
-    background: rgba(14, 13, 11, 0.88);
-    border: 1px solid rgba(201, 169, 110, 0.4);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+    display: none !important;
   }
-  .workbook-nav-prev { left: 4px; z-index: 35; }
-  .workbook-nav-next { right: 4px; z-index: 35; }
   .workbook-thumbs { display: none; }
   .workbook-footer {
     height: 50px;
     padding: 0 12px;
     justify-content: center;
+  }
+
+  /* Horizontal slide animation for mobile touch transitions */
+  .workbook-book.slide-anim-next {
+    animation: mobileSlideNext 0.38s cubic-bezier(0.2, 0.8, 0.25, 1) forwards;
+  }
+  .workbook-book.slide-anim-prev {
+    animation: mobileSlidePrev 0.38s cubic-bezier(0.2, 0.8, 0.25, 1) forwards;
+  }
+}
+
+@keyframes mobileSlideNext {
+  0% {
+    opacity: 0.35;
+    transform: translateX(45px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes mobileSlidePrev {
+  0% {
+    opacity: 0.35;
+    transform: translateX(-45px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 

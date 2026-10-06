@@ -17,6 +17,7 @@ export function WorkBook({ initialIndex = 0, projectIndex, project, isOpen, onCl
   const [galleryIndex, setGalleryIndex] = useState(0);
   const [flippingGalleryIndex, setFlippingGalleryIndex] = useState<number | null>(null);
   const [flipDirection, setFlipDirection] = useState<"next" | "prev" | null>(null);
+  const [slideDirection, setSlideDirection] = useState<"next" | "prev" | null>(null);
   const [isAnimating, setIsAnimating] = useState(false);
   const bookRef = useRef<HTMLDivElement>(null);
   const touchStartX = useRef<number | null>(null);
@@ -30,6 +31,7 @@ export function WorkBook({ initialIndex = 0, projectIndex, project, isOpen, onCl
       setIsAnimating(false);
       setFlippingGalleryIndex(null);
       setFlipDirection(null);
+      setSlideDirection(null);
     }
   }, [isOpen, initialIndex, project]);
 
@@ -43,16 +45,18 @@ export function WorkBook({ initialIndex = 0, projectIndex, project, isOpen, onCl
       setIsAnimating(true);
       setFlippingGalleryIndex(galleryIndex);
       setFlipDirection(direction);
+      setSlideDirection(direction);
 
       setTimeout(() => {
         setGalleryIndex(targetIdx);
-      }, 300);
+      }, 160);
 
       setTimeout(() => {
         setIsAnimating(false);
         setFlippingGalleryIndex(null);
         setFlipDirection(null);
-      }, 650);
+        setSlideDirection(null);
+      }, 450);
     },
     [galleryIndex, isAnimating, totalSlides],
   );
@@ -160,7 +164,7 @@ export function WorkBook({ initialIndex = 0, projectIndex, project, isOpen, onCl
         {/* The 3D Book Object */}
         <div
           ref={bookRef}
-          className={`workbook-book ${isAnimating ? "is-flipping" : ""}`}
+          className={`workbook-book ${isAnimating ? "is-flipping" : ""} ${slideDirection ? `slide-anim-${slideDirection}` : ""}`}
         >
           <div className="workbook-spine-shadow" />
           <div className="workbook-paper-stack-left" />
