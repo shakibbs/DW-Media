@@ -27,6 +27,35 @@ function Index() {
   const [paused, setPaused] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [bookIndex, setBookIndex] = useState<number | null>(null);
+
+  // Contact form state
+  const [formName, setFormName] = useState("");
+  const [formEmail, setFormEmail] = useState("");
+  const [formPhone, setFormPhone] = useState("");
+  const [formService, setFormService] = useState("Cinema & Commercial Production");
+  const [formMessage, setFormMessage] = useState("");
+  const [formSent, setFormSent] = useState(false);
+
+  const handleContactSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const subject = encodeURIComponent(`Project Inquiry: ${formService} - ${formName}`);
+    const body = encodeURIComponent(
+      `DW PRODUCTION MEDIA PROJECT INQUIRY\n` +
+      `====================================\n\n` +
+      `CLIENT NAME: ${formName}\n` +
+      `CLIENT EMAIL: ${formEmail}\n` +
+      `PHONE / WHATSAPP: ${formPhone || "Not provided"}\n` +
+      `SERVICE CATEGORY: ${formService}\n\n` +
+      `PROJECT BRIEF / MESSAGE:\n` +
+      `${formMessage}\n\n` +
+      `------------------------------------\n` +
+      `Target Recipient: dwproductionmedia@gmail.com\n` +
+      `Sent via DW Production Media Web Portal`
+    );
+
+    window.location.href = `mailto:dwproductionmedia@gmail.com?subject=${subject}&body=${body}`;
+    setFormSent(true);
+  };
   const service = services[selected] ?? services[0];
   const selectByKeyboard = (event: React.KeyboardEvent, index: number) => {
     let next = index;
@@ -96,7 +125,119 @@ function Index() {
         </section>
         <section id="work" className="section work-section"><div className="container"><div className="section-head"><div><div className="eyebrow"><span className="section-number">02 /</span> OUR CREATIVE ECOSYSTEM — PREVIOUS &amp; LEGACY WORK</div><h2>Real people.<br /><em>Real production.</em></h2></div><p className="section-caption">A look inside the work of our<br />production and creative collaborators.</p></div><div className="work-filters" aria-label="Filter portfolio">{['All work', ...Array.from(new Set(portfolio.map((p) => p.category)))].map((filter)=><Button key={filter} variant="editorial" aria-pressed={category===filter} onClick={()=>setCategory(filter)}>{filter}</Button>)}</div><div className="work-grid">{filterPortfolio(category).map((work,index)=>{const pIdx = portfolio.findIndex((p)=>p.title===work.title); return (<article className="work-item" key={work.title}><Button className="work-open" variant="editorial" onClick={()=>setBookIndex(pIdx >= 0 ? pIdx : index)} aria-label={`Open work book for ${work.title}`}><div className="work-photo"><img src={work.image} alt={work.title} loading="lazy"/>{work.status && (<span className="work-badge-upcoming">{work.status}</span>)}<span className="round-icon"><ArrowUpRight size={15}/></span></div></Button><div className="work-meta"><span>{work.category.toUpperCase()}{work.status ? ` · ${work.status}` : ""}</span><span>0{index+1}</span></div><h3>{work.title}</h3><p className="work-credit">{work.credit}</p></article>);})}</div></div></section>
         <section id="studio" className="section about"><div className="container about-inner"><div><div className="eyebrow"><span className="section-number">03 /</span> THE STUDIO</div><h2>Fresh perspective.<br /><em>Shared experience.</em></h2></div><div className="about-copy"><p><strong>We are DW Production Media.</strong> A new-generation media and entertainment initiative bringing together creative production, brand experiences and digital culture.</p><p>Our independent vision is supported by experienced collaborators in fashion, production and entertainment media. Together, we connect ideas, talent and brands—with thoughtful planning and purposeful execution.</p><div className="about-signature"><span className="live-dot" /> CREATE · CAPTURE · CONNECT</div></div></div></section>
-        <section id="contact" className="contact-section"><div className="container"><div className="eyebrow"><span className="section-number">04 /</span> THE NEXT FRAME IS YOURS</div><div className="contact-line"><h2>LET’S CREATE<br /><em>SOMETHING GREAT.</em></h2><Button variant="editorial" className="contact-cta" aria-label="Email DW Production Media" asChild><a href="mailto:dwproductionmedia@gmail.com"><ArrowUpRight /></a></Button></div></div></section>
+        {/* Section 04: Interactive Direct Contact Form */}
+        <section id="contact" className="contact-section">
+          <div className="container">
+            <div className="eyebrow"><span className="section-number">04 /</span> THE NEXT FRAME IS YOURS</div>
+            <div className="contact-line">
+              <h2>LET’S CREATE<br /><em>SOMETHING GREAT.</em></h2>
+              <a
+                href="mailto:dwproductionmedia@gmail.com"
+                className="contact-cta"
+                aria-label="Direct email to dwproductionmedia@gmail.com"
+              >
+                <Mail size={28} />
+              </a>
+            </div>
+
+            {/* Direct Contact Form */}
+            <form className="direct-contact-form" onSubmit={handleContactSubmit}>
+              <div className="form-header-badge">
+                <span className="live-dot" />
+                <span>DIRECT DISPATCH TO: dwproductionmedia@gmail.com</span>
+              </div>
+
+              <div className="form-grid">
+                <div className="form-group">
+                  <label htmlFor="contact-name">YOUR NAME *</label>
+                  <input
+                    id="contact-name"
+                    type="text"
+                    required
+                    placeholder="e.g. Shakib Ahmed"
+                    value={formName}
+                    onChange={(e) => setFormName(e.target.value)}
+                  />
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="contact-email">YOUR EMAIL *</label>
+                  <input
+                    id="contact-email"
+                    type="email"
+                    required
+                    placeholder="name@company.com"
+                    value={formEmail}
+                    onChange={(e) => setFormEmail(e.target.value)}
+                  />
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="contact-phone">PHONE / WHATSAPP</label>
+                  <input
+                    id="contact-phone"
+                    type="tel"
+                    placeholder="+880 1345-741060"
+                    value={formPhone}
+                    onChange={(e) => setFormPhone(e.target.value)}
+                  />
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="contact-service">PROJECT TYPE</label>
+                  <select
+                    id="contact-service"
+                    value={formService}
+                    onChange={(e) => setFormService(e.target.value)}
+                  >
+                    <option value="Cinema & Commercial Production">Cinema &amp; Commercial Production</option>
+                    <option value="Event Management & Award Shows (BCCA / CCA)">Event Management &amp; Award Shows (BCCA / CCA)</option>
+                    <option value="Fashion Runway & Brand Production">Fashion Runway &amp; Brand Production</option>
+                    <option value="Talent & Model Management">Talent &amp; Model Management (Dhaka Model Agency)</option>
+                    <option value="Entertainment & Media Publishing">Entertainment &amp; Media Publishing (Anondo Binodon)</option>
+                    <option value="General Branding Inquiry">General Branding Inquiry</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className="form-group form-group-full">
+                <label htmlFor="contact-message">PROJECT BRIEF / MESSAGE *</label>
+                <textarea
+                  id="contact-message"
+                  required
+                  rows={4}
+                  placeholder="Share your project concept, timeline, and vision..."
+                  value={formMessage}
+                  onChange={(e) => setFormMessage(e.target.value)}
+                />
+              </div>
+
+              <div className="form-action-bar">
+                <Button type="submit" variant="cinema" className="send-form-btn">
+                  <Mail size={16} />
+                  <span>SEND MESSAGE TO DW PRODUCTION MEDIA</span>
+                  <ArrowUpRight size={16} />
+                </Button>
+                <div className="direct-email-indicator">
+                  Target Email: <strong>dwproductionmedia@gmail.com</strong>
+                </div>
+              </div>
+
+              {formSent && (
+                <div className="form-success-banner" role="alert">
+                  <span className="live-dot" />
+                  <div>
+                    <strong>INQUIRY PREPARED FOR DW PRODUCTION MEDIA!</strong>
+                    <p>
+                      Opening your email client with message prefilled to <strong>dwproductionmedia@gmail.com</strong>.
+                      If your mail program didn't open automatically, <a href={`mailto:dwproductionmedia@gmail.com?subject=${encodeURIComponent('Project Inquiry: ' + formService)}&body=${encodeURIComponent(formMessage)}`}>click here to send email directly</a>.
+                    </p>
+                  </div>
+                </div>
+              )}
+            </form>
+          </div>
+        </section>
       </main>
 
       <footer className="site-footer">
