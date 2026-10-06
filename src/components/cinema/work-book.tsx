@@ -21,7 +21,7 @@ export function WorkBook({ initialIndex = 0, projectIndex, project, isOpen, onCl
   const bookRef = useRef<HTMLDivElement>(null);
   const touchStartX = useRef<number | null>(null);
 
-  const isCCA = project?.title?.includes("CCA") || projectIndex === 1 || initialIndex === 1;
+  const isCCA = (project ? project.title.startsWith("CCA") : (projectIndex === 1 || initialIndex === 1));
   const slides = isCCA ? ccaSlides : bccaSlides;
 
   useEffect(() => {

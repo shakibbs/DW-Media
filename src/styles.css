@@ -1068,30 +1068,72 @@ html.intro-active {
 /* RESPONSIVE & MOBILE FLIPBOOK ADJUSTMENTS */
 @media (max-width: 900px) {
   .workbook-header {
-    padding: 0 16px;
-    height: 56px;
+    padding: 0 14px;
+    height: 52px;
   }
   .workbook-stage {
-    padding: 10px 16px;
+    padding: 8px 10px;
+  }
+  /* Remove center book fold shadow, paper stacks, and half-page flip on mobile */
+  .workbook-spine-shadow,
+  .workbook-paper-stack-left,
+  .workbook-paper-stack-right,
+  .workbook-flipping-page {
+    display: none !important;
   }
   .workbook-book {
-    width: 96vw;
-    height: 72vh;
+    width: 95vw;
+    max-width: 520px;
+    height: 78vh;
+    max-height: 640px;
     flex-direction: column;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+    border-radius: 8px;
+    overflow-y: auto;
+    background: #fcfaf5;
+  }
+  .workbook-page {
+    width: 100%;
+    height: auto;
+    min-height: min-content;
+    position: relative;
+    border: none;
+    border-radius: 0;
   }
   .workbook-page-left {
-    display: none; /* Mobile single page view */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   }
   .workbook-page-right {
-    width: 100%;
-    border-radius: 6px;
+    border-top: 1px solid rgba(201, 169, 110, 0.15);
   }
-  .workbook-nav-prev { left: 10px; }
-  .workbook-nav-next { right: 10px; }
+  .workbook-page-inner {
+    padding: 20px 18px;
+    height: auto;
+  }
+  .workbook-page-left:has(.workbook-image-frame) .workbook-page-inner {
+    padding: 12px;
+  }
+  .workbook-image-frame {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    height: 220px;
+  }
+  .workbook-nav {
+    width: 38px;
+    height: 38px;
+    background: rgba(14, 13, 11, 0.88);
+    border: 1px solid rgba(201, 169, 110, 0.4);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+  }
+  .workbook-nav-prev { left: 4px; z-index: 35; }
+  .workbook-nav-next { right: 4px; z-index: 35; }
   .workbook-thumbs { display: none; }
   .workbook-footer {
-    height: 60px;
-    padding: 0 16px;
+    height: 50px;
+    padding: 0 12px;
     justify-content: center;
   }
 }
