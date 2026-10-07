@@ -25,7 +25,7 @@ export function CinematicIntro({
   revealDuration = 1.4,
   pauseDuration = 1.3,
   liftDuration = 1.2,
-  logoUrl = logo.url,
+  logoUrl = "/media/dw-intro-logo.png",
   title = "DW PRODUCTION MEDIA",
   subtitle = "FILM · BRANDING · CREATIVE PRODUCTION",
 }: CinematicIntroProps) {

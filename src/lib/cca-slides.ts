@@ -4,9 +4,9 @@ export const ccaSlides: BCCASlide[] = [
   {
     id: 1,
     type: "image",
-    header: "CCA AWARDS 2026 — PROJECT PROFILE",
+    header: "BCCA AWARDS 2026 — PROJECT PROFILE",
     subtitle: "DW Production Media In Strategic Association With Dhaka Model Agency & Anando Binodon",
-    image: "/media/cca-slide-01-cover.png",
+    image: "/media/cca-awards-cover.png",
   },
   {
     id: 2,
@@ -43,8 +43,8 @@ export const ccaSlides: BCCASlide[] = [
         text: "There are established awards for film, drama and traditional media, but a large-scale premium recognition platform for digital creators is still an emerging opportunity.",
       },
       {
-        title: "CCA Direction",
-        text: "CCA aims to recognize creators across multiple categories while giving brands direct access to a highly active digital-first audience.",
+        title: "BCCA Direction",
+        text: "BCCA aims to recognize creators across multiple categories while giving brands direct access to a highly active digital-first audience.",
       },
     ],
   },
@@ -56,11 +56,11 @@ export const ccaSlides: BCCASlide[] = [
     sections: [
       {
         title: "Message from the Founder",
-        text: "Bangladesh is experiencing a powerful digital transformation. Thousands of talented creators are shaping youth culture, consumer behaviour and modern media trends every day. CCA Awards 2026 has been envisioned as a premium national platform to recognize creators, influencers, entertainers and digital excellence.",
+        text: "Bangladesh is experiencing a powerful digital transformation. Thousands of talented creators are shaping youth culture, consumer behaviour and modern media trends every day. BCCA Awards 2026 has been envisioned as a premium national platform to recognize creators, influencers, entertainers and digital excellence.",
       },
       {
         title: "Our Direction",
-        text: "DW Production Media is developing CCA as a long-term creator economy platform, not only as a one-day event. The vision is to connect creators, brands, media, celebrities and audiences under one credible ecosystem.",
+        text: "DW Production Media is developing BCCA as a long-term creator economy platform, not only as a one-day event. The vision is to connect creators, brands, media, celebrities and audiences under one credible ecosystem.",
       },
     ],
   },
@@ -72,7 +72,7 @@ export const ccaSlides: BCCASlide[] = [
     sections: [
       {
         title: "Event Title & Organizers",
-        text: "Creator Content Awards 2026 (CCA Awards 2026) — Organized by DW Production Media in Strategic Association with Dhaka Model Agency & Anando Binodon.",
+        text: "Bangladesh Creator Content Awards 2026 (BCCA Awards 2026) — Organized by DW Production Media in Strategic Association with Dhaka Model Agency & Anando Binodon.",
       },
       {
         title: "Venue & Schedule",
@@ -100,7 +100,7 @@ export const ccaSlides: BCCASlide[] = [
       },
       {
         title: "Brand ROI",
-        text: "CCA Awards 2026 provides sponsors direct multi-platform exposure with over 1,200+ creators amplifying partner campaigns.",
+        text: "BCCA Awards 2026 provides sponsors direct multi-platform exposure with over 1,200+ creators amplifying partner campaigns.",
       },
     ],
   },
@@ -174,7 +174,7 @@ export const ccaSlides: BCCASlide[] = [
     image: "/media/cca-slide-12-music.png",
     highlights: [
       "Iconic Bangladeshi Music Composer & Singer",
-      "Bringing Legendary Musical Talent to CCA Stage",
+      "Bringing Legendary Musical Talent to BCCA Stage",
     ],
   },
   {
@@ -253,7 +253,7 @@ export const ccaSlides: BCCASlide[] = [
     subtitle: "DW Production Media · Organizer Contact & Venue Details",
     contactInfo: {
       title: "THANK YOU",
-      subtitle: "DW Production Media · Creator Content Awards 2026",
+      subtitle: "DW Production Media · Bangladesh Creator Content Awards 2026",
       description: "Venue: Bangladesh-China Friendship Exhibition Center (Hall of Fame) | Date: 03-11-2026 | Time: 5 PM - 9 PM.",
       founder: "Organized By: DW PRODUCTION MEDIA",
       phone: "+880 1345-741060",
@@ -267,7 +267,7 @@ export const ccaSlides: BCCASlide[] = [
     subtitle: "Ziaul Haque Polash & Purnima",
     image: "/media/cca-slide-19-hosts.png",
     highlights: [
-      "Co-Hosting the Grand Stage of CCA Awards 2026",
+      "Co-Hosting the Grand Stage of BCCA Awards 2026",
       "Dynamic Pairing of Cult Icon & Film Legend",
     ],
   },

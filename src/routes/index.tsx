@@ -193,7 +193,7 @@ function Index() {
                     onChange={(e) => setFormService(e.target.value)}
                   >
                     <option value="Cinema & Commercial Production">Cinema &amp; Commercial Production</option>
-                    <option value="Event Management & Award Shows (BCCA / CCA)">Event Management &amp; Award Shows (BCCA / CCA)</option>
+                    <option value="Event Management & Award Shows (BCCA)">Event Management &amp; Award Shows (BCCA)</option>
                     <option value="Fashion Runway & Brand Production">Fashion Runway &amp; Brand Production</option>
                     <option value="Talent & Model Management">Talent &amp; Model Management (Dhaka Model Agency)</option>
                     <option value="Entertainment & Media Publishing">Entertainment &amp; Media Publishing (Anondo Binodon)</option>
@@ -290,7 +290,7 @@ function Index() {
             <h4 style={{ marginTop: "20px" }}>FLAGSHIP PLATFORMS</h4>
             <ul>
               <li><a href="#work" onClick={() => setBookIndex(0)}>BCCA Awards 2026</a></li>
-              <li><a href="#work" onClick={() => setBookIndex(1)}>CCA Award 2026 (Upcoming)</a></li>
+              <li><a href="#work" onClick={() => setBookIndex(1)}>BCCA Award 2026 (Upcoming)</a></li>
             </ul>
           </div>
 

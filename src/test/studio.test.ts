@@ -8,7 +8,7 @@ describe("Studio services and portfolio", () => {
   it("returns only matching work for a portfolio category", () => {
     expect(filterPortfolio("Award & Creator Platform").map((item) => item.title)).toEqual([
       "BCCA Awards 2026",
-      "CCA Award 2026",
+      "BCCA Award 2026",
     ]);
     expect(filterPortfolio("All work")).toHaveLength(2);
     expect(filterPortfolio("Unknown")).toHaveLength(0);

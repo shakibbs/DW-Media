@@ -22,8 +22,8 @@ export function WorkBook({ initialIndex = 0, projectIndex, project, isOpen, onCl
   const bookRef = useRef<HTMLDivElement>(null);
   const touchStartX = useRef<number | null>(null);
 
-  const isCCA = (project ? project.title.startsWith("CCA") : (projectIndex === 1 || initialIndex === 1));
-  const slides = isCCA ? ccaSlides : bccaSlides;
+  const isUpcoming = (project ? project.status === "UPCOMING" : (projectIndex === 1 || initialIndex === 1));
+  const slides = isUpcoming ? ccaSlides : bccaSlides;
 
   useEffect(() => {
     if (isOpen) {

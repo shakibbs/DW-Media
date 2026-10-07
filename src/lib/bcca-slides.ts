@@ -27,7 +27,7 @@ export const bccaSlides: BCCASlide[] = [
     type: "image",
     header: "OFFICIAL WORK PROFILE",
     subtitle: "DW Production Media In Strategic Association With Dhaka Model Agency & Anando Binnodon",
-    image: "/media/bcca-slide-01-cover.jpg",
+    image: "/media/bcca-awards-cover.png",
   },
   {
     id: 2,
@@ -201,7 +201,7 @@ export const bccaSlides: BCCASlide[] = [
     type: "image",
     header: "Fashion & Event Execution",
     subtitle: "Entertainment Award Legacy",
-    image: "/media/bcca-slide-12-execution-photos.jpg",
+    image: "/media/bcca-slide-07-dma-photos.jpg",
     highlights: [
       "Combined creative, productive, entertainment media ecosystem",
     ],
