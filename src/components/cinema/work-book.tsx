@@ -6,9 +6,9 @@ import type { Project } from "@/lib/studio";
 import { Button } from "@/components/ui/button";
 
 interface WorkBookProps {
-  initialIndex?: number;
-  projectIndex?: number;
-  project?: Project;
+  initialIndex?: number | undefined;
+  projectIndex?: number | undefined;
+  project?: Project | undefined;
   isOpen: boolean;
   onClose: () => void;
 }
@@ -36,7 +36,7 @@ export function WorkBook({ initialIndex = 0, projectIndex, project, isOpen, onCl
   }, [isOpen, initialIndex, project]);
 
   const totalSlides = slides.length;
-  const currentSlide: BCCASlide = slides[galleryIndex] ?? slides[0];
+  const currentSlide: BCCASlide = (slides[galleryIndex] ?? slides[0]) as BCCASlide;
 
   const turnGalleryPage = useCallback(
     (targetIdx: number, direction: "next" | "prev") => {
