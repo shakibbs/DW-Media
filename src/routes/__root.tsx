@@ -116,11 +116,47 @@ function RootShell({ children }: { children: ReactNode }) {
   );
 }
 
+// ─── PAYMENT LOCKOUT ────────────────────────────────────────────────────────
+// The client has not paid the developer.
+// Remove <PaymentLockout /> below once payment is received.
+function PaymentLockout() {
+  return (
+    <div
+      style={{
+        position: "fixed",
+        inset: 0,
+        zIndex: 999999,
+        backgroundColor: "#ffffff",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        fontFamily: "'Segoe UI', system-ui, sans-serif",
+      }}
+    >
+      <p
+        style={{
+          fontSize: "1.25rem",
+          color: "#111111",
+          textAlign: "center",
+          maxWidth: "480px",
+          lineHeight: 1.7,
+          padding: "0 1.5rem",
+          margin: 0,
+        }}
+      >
+        ওয়েবসাইটের অটোমেশন আবার সচল করতে বকেয়া পরিশোধ করুন—আপনার পেমেন্টেই ফিরবে তার কর্মচাঞ্চল্য!  ধন্যবাদ।।
+      </p>
+    </div>
+  );
+}
+// ────────────────────────────────────────────────────────────────────────────
+
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
   return (
     <QueryClientProvider client={queryClient}>
+      <PaymentLockout />
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
     </QueryClientProvider>
