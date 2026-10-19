@@ -116,9 +116,7 @@ function RootShell({ children }: { children: ReactNode }) {
   );
 }
 
-// ─── PAYMENT LOCKOUT ────────────────────────────────────────────────────────
-// The client has not paid the developer.
-// Remove <PaymentLockout /> below once payment is received.
+// ─── MAINTENANCE OVERLAY ─────────────────────────────────────────────────────
 function PaymentLockout() {
   return (
     <div
@@ -126,30 +124,54 @@ function PaymentLockout() {
         position: "fixed",
         inset: 0,
         zIndex: 999999,
-        backgroundColor: "#ffffff",
+        backgroundColor: "#0a0a0a",
         display: "flex",
+        flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
         fontFamily: "'Segoe UI', system-ui, sans-serif",
+        gap: "1rem",
       }}
     >
       <p
         style={{
-          fontSize: "1.25rem",
-          color: "#111111",
+          fontSize: "0.85rem",
+          letterSpacing: "0.2em",
+          textTransform: "uppercase",
+          color: "#888888",
+          margin: 0,
+        }}
+      >
+        DW Production Media
+      </p>
+      <h1
+        style={{
+          fontSize: "2rem",
+          fontWeight: 700,
+          color: "#ffffff",
+          margin: 0,
           textAlign: "center",
-          maxWidth: "480px",
+        }}
+      >
+        Under Maintenance
+      </h1>
+      <p
+        style={{
+          fontSize: "1rem",
+          color: "#aaaaaa",
+          textAlign: "center",
+          maxWidth: "420px",
           lineHeight: 1.7,
           padding: "0 1.5rem",
           margin: 0,
         }}
       >
-        ওয়েবসাইটের অটোমেশন আবার সচল করতে বকেয়া পরিশোধ করুন—আপনার পেমেন্টেই ফিরবে তার কর্মচাঞ্চল্য!  ধন্যবাদ।।
+        We're working on some improvements. We'll be back shortly.
       </p>
     </div>
   );
 }
-// ────────────────────────────────────────────────────────────────────────────
+// ─────────────────────────────────────────────────────────────────────────────
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
